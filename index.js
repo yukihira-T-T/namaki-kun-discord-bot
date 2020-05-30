@@ -1,4 +1,21 @@
 const botconfig = require("./botconfig.json");
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
+client.on("ready", () => {
+  console.log("I am ready!");
+});
+
+client.on("message", (message) => {
+  if (message.content.startsWith("ping")) {
+    message.channel.send("pong!");
+  }
+});
+console.log(JSON.stringify(botconfig))
+client.login(botconfig.token);
+
+/*
+const botconfig = require("./botconfig.json");
 const Discord = require('discord.js');
 
 const bot = new Discord.Client({disableEveryone: true});
@@ -39,3 +56,4 @@ bot.on("message", message =>{
 })
 
 bot.login(botconfig.token);
+*/
